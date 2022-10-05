@@ -1,0 +1,37 @@
+.container {
+  padding: 10px;
+  font-size: 14px;
+}
+.container .theWeek {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .theWeek .whatWeek {
+  margin-top: 10px;
+}
+.container .theWeek .whatWeek .changeWeek {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .theWeek .whatWeek .changeWeek .nowWeek {
+  font-size: 17px;
+}
+.container .theWeek .whatWeek .changeWeek .nowWeek .weekNum {
+  font-size: 24px;
+  margin: 0 2px;
+  color: #ff1b07;
+}
+.container .theWeek .whatWeek .changeWeek .changeWeekBtn {
+  background-color: #eaeaea;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 5px;
+}
+.container .theWeek .whatWeek .example-body {
+  background-color: #fff;
+  padding: 10px;
+}

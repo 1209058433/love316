@@ -1,0 +1,27 @@
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"id": {   //id
+			"bsonType": "int"
+		},
+		"goSchoolDate":{   //开学时间
+			"bsonType": "string"
+		},
+		"curriculumUrl":{   //课程表图片url
+			"bsonType": "string"
+		},
+		"classTimeUrl":{   //时间安排表图片url
+			"bsonType": "string"
+		}
+	}
+}
