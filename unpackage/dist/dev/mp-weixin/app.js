@@ -6,6 +6,13 @@ if (!Math) {
   "./pages/index/index.js";
   "./pages/homework/homework.js";
   "./pages/myself/myself.js";
+  "./pages/login/login.js";
+  "./pages/changeHead/changeHead.js";
+  "./pages/changeNickname/changeNickname.js";
+  "./pages/changePassword/changePassword.js";
+  "./pages/writehomework/writehomework.js";
+  "./pages/homeworkDetails/homeworkDetails.js";
+  "./pages/none/none.js";
 }
 const _sfc_main = {};
 var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/1study/case/Love316/love316/App.vue"]]);

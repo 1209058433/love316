@@ -1,0 +1,28 @@
+.myself-container .head {
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.myself-container .head .headImg {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+}
+.myself-container .head .headImg .userHead {
+  width: 100%;
+  height: 100%;
+}
+.myself-container .head .nickName {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 20px;
+}
+.myself-container .operation .exitLog {
+  color: #ff0000;
+}

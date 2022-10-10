@@ -6,11 +6,13 @@ const _sfc_main = {
       week: 0,
       single: "",
       ifSchool: true,
-      ifChangeStartDate: false
+      ifChangeStartDate: false,
+      ifLogin: true
     };
   },
   created() {
     this.getSchoolStartDate();
+    this.ifLog();
   },
   methods: {
     toggle() {
@@ -28,6 +30,12 @@ const _sfc_main = {
         this.ifSchool = false;
       } else {
         this.week = nowWeek;
+      }
+    },
+    ifLog() {
+      const token = common_vendor.index.getStorageSync("userAccount");
+      if (token) {
+        this.ifLogin = false;
       }
     }
   },
@@ -79,7 +87,11 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $data.ifSchool ? {
     f: common_vendor.t($data.week)
   } : {}, {
-    g: common_vendor.o((...args) => $options.toggle && $options.toggle(...args))
+    g: common_vendor.o((...args) => $options.toggle && $options.toggle(...args)),
+    h: $data.ifLogin,
+    i: common_vendor.p({
+      ifLogin: $data.ifLogin
+    })
   });
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/1study/case/Love316/love316/pages/index/index.vue"]]);

@@ -11,12 +11,12 @@
 					<text class="nowWeek" v-else>现在是放假时间</text>
 					<view class="changeWeekBtn">
 						<text>更改:</text>
-						<switch color="#FFCC33" style="transform:scale(0.7)" @change="toggle" />
+						<switch color="#FFCC33" style="transform:scale(0.7)" @change="toggle" :disabled="ifLogin" />
 					</view>
 				</view>
 			</view>
 		</view>
-		<my-curriculum></my-curriculum>
+		<my-curriculum :ifLogin="ifLogin"></my-curriculum>
 	</view>
 </template>
 
@@ -28,11 +28,13 @@
 				week: 0,   //现在是第几周
 				single: '',  //开学时间
 				ifSchool:true, //是否开学
-				ifChangeStartDate:false  //是否更改开学时间
+				ifChangeStartDate:false  ,//是否更改开学时间
+				ifLogin:true,  //是否登录了,登录了改为false,用来判断switch是否禁用
 			}
 		},
 		created() {
 			this.getSchoolStartDate()
+			this.ifLog()
 		},
 		methods: {
 			//是否展示更改开学时间的组件
@@ -55,6 +57,14 @@
 					this.week= nowWeek
 				}
 			}, 
+			
+			//检查是否登录了
+			ifLog() {
+				const token = uni.getStorageSync('userAccount')
+				if(token) {
+					this.ifLogin = false
+				}
+			}
 		},
 		watch:{
 		    async single(newValue,oldValue) {

@@ -1,0 +1,42 @@
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"title":{   //标题（科目）
+			"bsonType": "string"
+		},
+		"author":{   //发布人的账号
+			"bsonType": "string"
+		},
+		"time":{   //发布时间
+			"bsonType": "string"
+		},
+		"deadLine":{   //截止时间
+			"bsonType": "string"
+		},
+		"content":{   //内容
+			"bsonType": "string"
+		},
+		"images":{  //图片
+			"bsonType": "array",
+			"arrayType": "string"
+		},
+		"completeUsers":{   //已完成的人
+			"bsonType": "array",
+			"arrayType": "string"
+		},
+		"notCompleteUsers":{   //未完成的人
+			"bsonType": "array",
+			"arrayType": "string"
+		}
+	}
+}

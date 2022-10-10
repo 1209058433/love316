@@ -1,0 +1,11 @@
+.changeHead-container {
+  box-sizing: border-box;
+  padding: 5px;
+}
+.changeHead-container .example-body {
+  padding: 10px;
+  padding-top: 0;
+}
+.changeHead-container .changeBtn {
+  margin-top: 20px;
+}

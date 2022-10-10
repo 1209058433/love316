@@ -7,12 +7,13 @@
 				<text>课程表(图片)</text>
 				<view>
 					<text>更新</text>
-					<switch color="#FFCC33" style="transform:scale(0.7)" @change="upLoadCurriculum" />
+					<switch color="#FFCC33" style="transform:scale(0.7)" @change="upLoadCurriculum"
+						:disabled="ifLogin" />
 				</view>
 			</view>
 			<view class="classImg" @click="watchcurriculumUrl">
 				<text>点击查看课程表图片</text>
-				<text>只是一张图？因为我太懒了，能看就行了</text>
+				<text>只是一张图？能看就行了</text>
 			</view>
 			<!-- 更新课程表图片(上传) -->
 			<view class="upLoadCurriculum" v-if="ifChangeCurriculum">
@@ -27,7 +28,8 @@
 				<text>作息时间(图片)</text>
 				<view>
 					<text>更新</text>
-					<switch color="#FFCC33" style="transform:scale(0.7)" @change="uploadClassTime" />
+					<switch color="#FFCC33" style="transform:scale(0.7)" @change="uploadClassTime"
+						:disabled="ifLogin" />
 				</view>
 			</view>
 			<view class="classImg" @click="watchClassTimeImg">
@@ -38,7 +40,8 @@
 			<view class="upLoadCurriculum" v-if="ifChangeClassTime">
 				<view class="example-body">
 					<uni-file-picker limit="1" title="最多选择1张图片,仅支持png/jpg" file-mediatype="image" file-extname="png,jpg"
-						@progress="uploadingImg" @success="uploadSuccessTime" @fail="uploadFail" v-model="newClassTimeUrl">
+						@progress="uploadingImg" @success="uploadSuccessTime" @fail="uploadFail"
+						v-model="newClassTimeUrl">
 					</uni-file-picker>
 				</view>
 			</view>
@@ -48,15 +51,18 @@
 
 <script lang="ts">
 	export default {
+		props: {
+			ifLogin: Boolean
+		},
 		data() {
 			return {
 				// fileID
 				newCurriculumUrl: [], //更新课程表的上传图片回显数据
-				newClassTimeUrl:[],  //更新时间表的上传图片的回显数据
+				newClassTimeUrl: [], //更新时间表的上传图片的回显数据
 				curriculumUrl: '', //课程表图片的url
 				classTimeUrl: '', //时间表的url
-				ifChangeCurriculum:false,  //是否上传新的课程表图片 
-				ifChangeClassTime:false,  //是否上传新的时间表图片 
+				ifChangeCurriculum: false, //是否上传新的课程表图片 
+				ifChangeClassTime: false, //是否上传新的时间表图片 
 			}
 		},
 		created() {
@@ -92,64 +98,52 @@
 			},
 			//图片上传成功(课程表)
 			async uploadSuccess() {
+				uni.hideLoading()
 				//删除原课程表图片，换成刚上传的图片
 				//调用云对象删除图片的方法
 				const delClassImg = uniCloud.importObject('delClassImg')
 				const res = delClassImg.delImg(this.curriculumUrl)
-				if (res.status === 0) {
-					//删除成功
-					//吧新上传的图片的url更新到数据库中
-					const db = uniCloud.database();
-					await db.collection('schoolWeek').where({
-						id: 1
-					}).update({
-						curriculumUrl: this.newCurriculumUrl[0].url
-					})
-					uni.hideLoading()
-					uni.showToast({
-						icon: 'success',
-						title: '上传成功',
-						duration: 2000
-					});
-				} else {
-					uni.hideLoading()
-					uni.showToast({
-						icon: 'error',
-						title: '出现错误',
-						duration: 2000
-					});
-				}
+				//吧新上传的图片的url更新到数据库中
+				const db = uniCloud.database();
+				await db.collection('schoolWeek').where({
+					id: 1
+				}).update({
+					curriculumUrl: this.newCurriculumUrl[0].url
+				})
+				uni.showToast({
+					icon: 'success',
+					title: '上传成功',
+					duration: 2000
+				});
+				uni.redirectTo({
+					url:'/pages/index/index'
+				})
 			},
-			
+
 			//图片上传成功(时间表)
 			async uploadSuccessTime() {
 				//删除原时间表图片，换成刚上传的图片
 				//调用云对象删除图片的方法
 				const delClassImg = uniCloud.importObject('delClassImg')
 				const res = delClassImg.delImg(this.classTimeUrl)
-				if (res.status === 0) {
-					//删除成功
-					//吧新上传的图片的url更新到数据库中
-					const db = uniCloud.database();
-					await db.collection('schoolWeek').where({
-						id: 1
-					}).update({
-						classTimeUrl: this.newClassTimeUrl[0].url
-					})
-					uni.hideLoading()
-					uni.showToast({
-						icon: 'success',
-						title: '上传成功',
-						duration: 2000
-					});
-				} else {
-					uni.hideLoading()
-					uni.showToast({
-						icon: 'error',
-						title: '出现错误',
-						duration: 2000
-					});
-				}
+				//删除成功
+				//吧新上传的图片的url更新到数据库中
+				const db = uniCloud.database();
+				await db.collection('schoolWeek').where({
+					id: 1
+				}).update({
+					classTimeUrl: this.newClassTimeUrl[0].url
+				})
+				uni.hideLoading()
+				uni.showToast({
+					icon: 'success',
+					title: '上传成功',
+					duration: 2000
+				});
+				uni.redirectTo({
+					url:'/pages/index/index'
+				})
+
 			},
 
 			//图片上传失败
@@ -161,7 +155,7 @@
 					duration: 2000
 				});
 			},
-			
+
 			upLoadCurriculum() {
 				this.ifChangeCurriculum = !this.ifChangeCurriculum
 			},
@@ -174,7 +168,7 @@
 
 <style lang="less">
 	.curriculum-container {
-		margin-top: 20px;
+		margin-top: 30px;
 
 		.classList {
 			background-color: #ececec;

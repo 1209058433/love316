@@ -1,1 +1,1 @@
-<view class="myself-container"> 用户页面 </view>
+<view class="myself-container"><view class="head"><view class="headImg"><image src="{{a}}" mode="aspectFill" class="userHead"></image></view><view class="nickName"><text>{{b}}</text></view></view><view class="operation"><button type="default" bindtap="{{c}}">修改头像</button><button type="default" bindtap="{{d}}">修改昵称</button><button type="default" bindtap="{{e}}">修改密码</button><button type="default" bindtap="{{f}}" class="exitLog">退出登录</button></view></view>

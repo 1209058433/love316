@@ -1,6 +1,9 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
+  props: {
+    ifLogin: Boolean
+  },
   data() {
     return {
       newCurriculumUrl: [],
@@ -41,54 +44,42 @@ const _sfc_main = {
       });
     },
     async uploadSuccess() {
+      common_vendor.index.hideLoading();
       const delClassImg = common_vendor.pn.importObject("delClassImg");
-      const res = delClassImg.delImg(this.curriculumUrl);
-      if (res.status === 0) {
-        const db = common_vendor.pn.database();
-        await db.collection("schoolWeek").where({
-          id: 1
-        }).update({
-          curriculumUrl: this.newCurriculumUrl[0].url
-        });
-        common_vendor.index.hideLoading();
-        common_vendor.index.showToast({
-          icon: "success",
-          title: "\u4E0A\u4F20\u6210\u529F",
-          duration: 2e3
-        });
-      } else {
-        common_vendor.index.hideLoading();
-        common_vendor.index.showToast({
-          icon: "error",
-          title: "\u51FA\u73B0\u9519\u8BEF",
-          duration: 2e3
-        });
-      }
+      delClassImg.delImg(this.curriculumUrl);
+      const db = common_vendor.pn.database();
+      await db.collection("schoolWeek").where({
+        id: 1
+      }).update({
+        curriculumUrl: this.newCurriculumUrl[0].url
+      });
+      common_vendor.index.showToast({
+        icon: "success",
+        title: "\u4E0A\u4F20\u6210\u529F",
+        duration: 2e3
+      });
+      common_vendor.index.redirectTo({
+        url: "/pages/index/index"
+      });
     },
     async uploadSuccessTime() {
       const delClassImg = common_vendor.pn.importObject("delClassImg");
-      const res = delClassImg.delImg(this.classTimeUrl);
-      if (res.status === 0) {
-        const db = common_vendor.pn.database();
-        await db.collection("schoolWeek").where({
-          id: 1
-        }).update({
-          classTimeUrl: this.newClassTimeUrl[0].url
-        });
-        common_vendor.index.hideLoading();
-        common_vendor.index.showToast({
-          icon: "success",
-          title: "\u4E0A\u4F20\u6210\u529F",
-          duration: 2e3
-        });
-      } else {
-        common_vendor.index.hideLoading();
-        common_vendor.index.showToast({
-          icon: "error",
-          title: "\u51FA\u73B0\u9519\u8BEF",
-          duration: 2e3
-        });
-      }
+      delClassImg.delImg(this.classTimeUrl);
+      const db = common_vendor.pn.database();
+      await db.collection("schoolWeek").where({
+        id: 1
+      }).update({
+        classTimeUrl: this.newClassTimeUrl[0].url
+      });
+      common_vendor.index.hideLoading();
+      common_vendor.index.showToast({
+        icon: "success",
+        title: "\u4E0A\u4F20\u6210\u529F",
+        duration: 2e3
+      });
+      common_vendor.index.redirectTo({
+        url: "/pages/index/index"
+      });
     },
     uploadFail() {
       common_vendor.index.hideLoading();
@@ -117,14 +108,15 @@ if (!Math) {
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
     a: common_vendor.o((...args) => $options.upLoadCurriculum && $options.upLoadCurriculum(...args)),
-    b: common_vendor.o((...args) => $options.watchcurriculumUrl && $options.watchcurriculumUrl(...args)),
-    c: $data.ifChangeCurriculum
+    b: $props.ifLogin,
+    c: common_vendor.o((...args) => $options.watchcurriculumUrl && $options.watchcurriculumUrl(...args)),
+    d: $data.ifChangeCurriculum
   }, $data.ifChangeCurriculum ? {
-    d: common_vendor.o($options.uploadingImg),
-    e: common_vendor.o($options.uploadSuccess),
-    f: common_vendor.o($options.uploadFail),
-    g: common_vendor.o(($event) => $data.newCurriculumUrl = $event),
-    h: common_vendor.p({
+    e: common_vendor.o($options.uploadingImg),
+    f: common_vendor.o($options.uploadSuccess),
+    g: common_vendor.o($options.uploadFail),
+    h: common_vendor.o(($event) => $data.newCurriculumUrl = $event),
+    i: common_vendor.p({
       limit: "1",
       title: "\u6700\u591A\u9009\u62E91\u5F20\u56FE\u7247,\u4EC5\u652F\u6301png/jpg",
       ["file-mediatype"]: "image",
@@ -132,15 +124,16 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       modelValue: $data.newCurriculumUrl
     })
   } : {}, {
-    i: common_vendor.o((...args) => $options.uploadClassTime && $options.uploadClassTime(...args)),
-    j: common_vendor.o((...args) => $options.watchClassTimeImg && $options.watchClassTimeImg(...args)),
-    k: $data.ifChangeClassTime
+    j: common_vendor.o((...args) => $options.uploadClassTime && $options.uploadClassTime(...args)),
+    k: $props.ifLogin,
+    l: common_vendor.o((...args) => $options.watchClassTimeImg && $options.watchClassTimeImg(...args)),
+    m: $data.ifChangeClassTime
   }, $data.ifChangeClassTime ? {
-    l: common_vendor.o($options.uploadingImg),
-    m: common_vendor.o($options.uploadSuccessTime),
-    n: common_vendor.o($options.uploadFail),
-    o: common_vendor.o(($event) => $data.newClassTimeUrl = $event),
-    p: common_vendor.p({
+    n: common_vendor.o($options.uploadingImg),
+    o: common_vendor.o($options.uploadSuccessTime),
+    p: common_vendor.o($options.uploadFail),
+    q: common_vendor.o(($event) => $data.newClassTimeUrl = $event),
+    r: common_vendor.p({
       limit: "1",
       title: "\u6700\u591A\u9009\u62E91\u5F20\u56FE\u7247,\u4EC5\u652F\u6301png/jpg",
       ["file-mediatype"]: "image",

@@ -1,0 +1,55 @@
+.details-container {
+  box-sizing: border-box;
+  padding: 10px;
+}
+.details-container .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.details-container .title .homeworkTitle {
+  font-size: 24px;
+  font-weight: 700;
+}
+.details-container .title .deadTime {
+  font-size: 14px;
+  margin-top: 5px 0;
+}
+.details-container .title .checkRadio {
+  margin: 10px 0;
+}
+.details-container .content {
+  padding: 5px;
+  border-top: 1px solid #bdbdbd;
+}
+.details-container .authorInfo {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #bebebe;
+}
+.details-container .authorInfo .headBox {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: aquamarine;
+  overflow: hidden;
+}
+.details-container .authorInfo .headBox .head {
+  width: 100%;
+  height: 100%;
+}
+.details-container .authorInfo .authorNick {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.details-container .authorInfo .sendTime {
+  margin-top: 20px;
+  color: #989898;
+}
+.details-container .delBtn {
+  margin-top: 30px;
+}

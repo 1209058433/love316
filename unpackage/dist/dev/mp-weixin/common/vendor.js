@@ -3354,9 +3354,6 @@ function traverse(value, seen) {
   }
   return value;
 }
-function defineComponent(options) {
-  return isFunction$1(options) ? { setup: options, name: options.name } : options;
-}
 const isKeepAlive = (vnode) => vnode.type.__isKeepAlive;
 function onActivated(hook, target) {
   registerKeepAliveHook(hook, "a", target);
@@ -5572,6 +5569,27 @@ function setRef(ref2, id, opts = {}) {
   const { $templateRefs } = getCurrentInstance();
   $templateRefs.push({ i: id, r: ref2, k: opts.k, f: opts.f });
 }
+function withModelModifiers(fn2, { number, trim }, isComponent = false) {
+  if (isComponent) {
+    return (...args) => {
+      if (trim) {
+        args = args.map((a2) => a2.trim());
+      } else if (number) {
+        args = args.map(toNumber);
+      }
+      return fn2(...args);
+    };
+  }
+  return (event) => {
+    const value = event.detail.value;
+    if (trim) {
+      event.detail.value = value.trim();
+    } else if (number) {
+      event.detail.value = toNumber(value);
+    }
+    return fn2(event);
+  };
+}
 const o$1 = (value, key) => vOn(value, key);
 const f$1 = (source, renderItem) => vFor(source, renderItem);
 const s$1 = (value) => stringifyStyle(value);
@@ -5580,6 +5598,7 @@ const n$1 = (value) => normalizeClass(value);
 const t$1 = (val) => toDisplayString(val);
 const p$1 = (props) => renderProps(props);
 const sr = (ref2, id, opts) => setRef(ref2, id, opts);
+const m$1 = (fn2, modifiers, isComponent = false) => withModelModifiers(fn2, modifiers, isComponent);
 function createApp$1(rootComponent, rootProps = null) {
   rootComponent && (rootComponent.mpType = "app");
   return createVueApp(rootComponent, rootProps).use(plugin);
@@ -6349,11 +6368,60 @@ const pages = [
     path: "pages/homework/homework",
     style: {
       navigationBarTitleText: "",
-      enablePullDownRefresh: false
+      enablePullDownRefresh: true
     }
   },
   {
     path: "pages/myself/myself",
+    style: {
+      navigationBarTitleText: "",
+      enablePullDownRefresh: false
+    }
+  },
+  {
+    path: "pages/login/login",
+    style: {
+      navigationBarTitleText: "",
+      enablePullDownRefresh: false
+    }
+  },
+  {
+    path: "pages/changeHead/changeHead",
+    style: {
+      navigationBarTitleText: "",
+      enablePullDownRefresh: false
+    }
+  },
+  {
+    path: "pages/changeNickname/changeNickname",
+    style: {
+      navigationBarTitleText: "",
+      enablePullDownRefresh: false
+    }
+  },
+  {
+    path: "pages/changePassword/changePassword",
+    style: {
+      navigationBarTitleText: "",
+      enablePullDownRefresh: false
+    }
+  },
+  {
+    path: "pages/writehomework/writehomework",
+    style: {
+      navigationBarTitleText: "",
+      enablePullDownRefresh: false
+    }
+  },
+  {
+    path: "pages/homeworkDetails/homeworkDetails",
+    style: {
+      navigationBarTitleText: "",
+      enablePullDownRefresh: false
+    }
+  },
+  {
+    path: "pages/none/none",
     style: {
       navigationBarTitleText: "",
       enablePullDownRefresh: false
@@ -6624,7 +6692,7 @@ switch (f) {
   default:
     g = f;
 }
-const p = h('{\n    "address": [\n        "127.0.0.1",\n        "10.132.3.221"\n    ],\n    "debugPort": 9000,\n    "initialLaunchType": "local",\n    "servePort": 7000,\n    "skipFiles": [\n        "<node_internals>/**/*.js",\n        "D:/[A]\u5DE5\u5177/HBuilderX/plugins/unicloud/**/*.js"\n    ]\n}\n'), m = h('[{"provider":"aliyun","spaceName":"love316-cloud","spaceId":"3665b370-f42c-4fac-9233-00f08b298dde","clientSecret":"rN3AaC0lhgmXTNqeMNBULQ==","endpoint":"https://api.bspapp.com"}]') || [];
+const p = h('{\n    "address": [\n        "127.0.0.1",\n        "10.132.3.4"\n    ],\n    "debugPort": 9000,\n    "initialLaunchType": "local",\n    "servePort": 7000,\n    "skipFiles": [\n        "<node_internals>/**/*.js",\n        "D:/[A]\u5DE5\u5177/HBuilderX/plugins/unicloud/**/*.js"\n    ]\n}\n'), m = h('[{"provider":"aliyun","spaceName":"love316-cloud","spaceId":"3665b370-f42c-4fac-9233-00f08b298dde","clientSecret":"rN3AaC0lhgmXTNqeMNBULQ==","endpoint":"https://api.bspapp.com"}]') || [];
 let _ = "";
 try {
   _ = "__UNI__A3F37C8";
@@ -12298,17 +12366,16 @@ hooks.HTML5_FMT = {
 };
 exports._export_sfc = _export_sfc;
 exports.createSSRApp = createSSRApp;
-exports.defineComponent = defineComponent;
 exports.e = e;
 exports.f = f$1;
 exports.hooks = hooks;
 exports.index = index;
 exports.initVueI18n = initVueI18n;
+exports.m = m$1;
 exports.n = n$1;
 exports.o = o$1;
 exports.p = p$1;
 exports.pn = pn;
-exports.ref = ref;
 exports.resolveComponent = resolveComponent;
 exports.s = s$1;
 exports.sr = sr;

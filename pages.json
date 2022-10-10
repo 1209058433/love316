@@ -3,6 +3,23 @@
 		"path": "pages/index/index"
 	}  ,{
             "path" : "pages/homework/homework",
+            "style" :                                                 
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/myself/myself",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        }  
+        ,{
+            "path" : "pages/login/login",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -11,7 +28,52 @@
             
         }
         ,{
-            "path" : "pages/myself/myself",
+            "path" : "pages/changeHead/changeHead",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/changeNickname/changeNickname",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/changePassword/changePassword",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/writehomework/writehomework",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/homeworkDetails/homeworkDetails",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/none/none",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",

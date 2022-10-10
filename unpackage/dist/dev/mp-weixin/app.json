@@ -2,7 +2,14 @@
   "pages": [
     "pages/index/index",
     "pages/homework/homework",
-    "pages/myself/myself"
+    "pages/myself/myself",
+    "pages/login/login",
+    "pages/changeHead/changeHead",
+    "pages/changeNickname/changeNickname",
+    "pages/changePassword/changePassword",
+    "pages/writehomework/writehomework",
+    "pages/homeworkDetails/homeworkDetails",
+    "pages/none/none"
   ],
   "window": {
     "navigationBarTextStyle": "black",
