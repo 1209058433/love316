@@ -40,7 +40,7 @@
 					const oldPass = res.data[0]
 					if(oldPass.password === this.oldPassword) {
 						if(this.passwordErr === false) {
-							await db.collection('users').update({password:this.newPasswordNext})
+							await db.collection('users').where({account:tokenInfo}).update({password:this.newPasswordNext})
 							uni.showModal({
 								title:'成功',
 								content:'修改密码成功',

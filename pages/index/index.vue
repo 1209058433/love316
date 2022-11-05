@@ -16,6 +16,7 @@
 				</view>
 			</view>
 		</view>
+		<Banner></Banner>
 		<my-curriculum :ifLogin="ifLogin"></my-curriculum>
 	</view>
 </template>
@@ -126,8 +127,6 @@
 					padding: 10px;
 				}
 			}
-
-			
 		}
 	}
 </style>

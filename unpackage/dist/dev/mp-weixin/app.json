@@ -9,7 +9,9 @@
     "pages/changePassword/changePassword",
     "pages/writehomework/writehomework",
     "pages/homeworkDetails/homeworkDetails",
-    "pages/none/none"
+    "pages/none/none",
+    "pages/blogView/blogView",
+    "pages/urlView/urlView"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -40,6 +42,7 @@
       }
     ]
   },
+  "lazyCodeLoading": "requiredComponents",
   "permission": {},
   "usingComponents": {}
 }

@@ -13,6 +13,8 @@ if (!Math) {
   "./pages/writehomework/writehomework.js";
   "./pages/homeworkDetails/homeworkDetails.js";
   "./pages/none/none.js";
+  "./pages/blogView/blogView.js";
+  "./pages/urlView/urlView.js";
 }
 const _sfc_main = {};
 var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/1study/case/Love316/love316/App.vue"]]);

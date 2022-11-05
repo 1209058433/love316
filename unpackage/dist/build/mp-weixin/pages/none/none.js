@@ -1,0 +1,1 @@
+"use strict";var r=require("../../common/vendor.js");const e={data:()=>({}),onLoad(e){const t=e.path;r.index.redirectTo({url:t})}};var t=r._export_sfc(e,[["render",function(r,e,t,n,o,a){return{}}]]);wx.createPage(t);

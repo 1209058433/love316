@@ -4,12 +4,13 @@
   padding: 5px;
   width: 100%;
   height: 80px;
-  border: 1px solid black;
   border-radius: 5px;
+  box-shadow: 0.3px 0.3px 2px 0.4px #adadad;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  background-color: #fff;
 }
 .homeworkBox-container .title {
   display: flex;

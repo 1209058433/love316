@@ -27,7 +27,7 @@ const _sfc_main = {
         const oldPass = res.data[0];
         if (oldPass.password === this.oldPassword) {
           if (this.passwordErr === false) {
-            await db.collection("users").update({ password: this.newPasswordNext });
+            await db.collection("users").where({ account: tokenInfo }).update({ password: this.newPasswordNext });
             common_vendor.index.showModal({
               title: "\u6210\u529F",
               content: "\u4FEE\u6539\u5BC6\u7801\u6210\u529F",

@@ -59,14 +59,16 @@ const _sfc_main = {
 if (!Array) {
   const _easycom_uni_section2 = common_vendor.resolveComponent("uni-section");
   const _easycom_uni_datetime_picker2 = common_vendor.resolveComponent("uni-datetime-picker");
+  const _easycom_Banner2 = common_vendor.resolveComponent("Banner");
   const _easycom_my_curriculum2 = common_vendor.resolveComponent("my-curriculum");
-  (_easycom_uni_section2 + _easycom_uni_datetime_picker2 + _easycom_my_curriculum2)();
+  (_easycom_uni_section2 + _easycom_uni_datetime_picker2 + _easycom_Banner2 + _easycom_my_curriculum2)();
 }
 const _easycom_uni_section = () => "../../uni_modules/uni-section/components/uni-section/uni-section.js";
 const _easycom_uni_datetime_picker = () => "../../uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.js";
+const _easycom_Banner = () => "../../components/Banner/Banner.js";
 const _easycom_my_curriculum = () => "../../components/my-curriculum/my-curriculum.js";
 if (!Math) {
-  (_easycom_uni_section + _easycom_uni_datetime_picker + _easycom_my_curriculum)();
+  (_easycom_uni_section + _easycom_uni_datetime_picker + _easycom_Banner + _easycom_my_curriculum)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({

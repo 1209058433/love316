@@ -87,12 +87,13 @@
 		padding: 5px;
 		width: 100%;
 		height: 80px;
-		border: 1px solid black;
 		border-radius: 5px;
+		box-shadow: .3px .3px 2px .4px #adadad;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		position: relative;
+		background-color: #fff;
 		
 		.title {
 			display: flex;

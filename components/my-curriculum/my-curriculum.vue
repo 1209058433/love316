@@ -168,7 +168,7 @@
 
 <style lang="less">
 	.curriculum-container {
-		margin-top: 30px;
+		margin-top: 10px;
 
 		.classList {
 			background-color: #ececec;

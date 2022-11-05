@@ -1,0 +1,1 @@
+.homework-container{box-sizing:border-box;padding:10px}.homework-container .homeworkList{margin-top:15px}.homework-container .noMore{display:flex;justify-content:center;align-items:center;margin-top:10px}

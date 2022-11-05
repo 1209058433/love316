@@ -1,5 +1,5 @@
 {
-    "name" : "love316",
+    "name" : "爱在316",
     "appid" : "__UNI__A3F37C8",
     "description" : "",
     "versionName" : "1.0.0",
@@ -49,7 +49,6 @@
     "quickapp" : {},
     /* 快应用特有相关 */
     "mp-weixin" : {
-        /* 小程序特有相关 */
         "appid" : "wxa10c37ab022b9e09",
         "setting" : {
             "urlCheck" : false,
@@ -57,6 +56,7 @@
             "postcss" : false
         },
         "usingComponents" : true,
+        "lazyCodeLoading" : "requiredComponents",
         "permission" : {}
     },
     "vueVersion" : "3",

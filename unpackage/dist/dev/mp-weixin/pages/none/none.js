@@ -6,7 +6,7 @@ const _sfc_main = {
   },
   onLoad(option) {
     const path = option.path;
-    common_vendor.index.redirectTo({
+    common_vendor.index.reLaunch({
       url: path
     });
   }
